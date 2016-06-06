@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="stylesheets/style.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script src="../bower_components/handlebars/handlebars.js"></script>
     <title>Uber API</title>
   </head>
   <body>
@@ -29,14 +30,38 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-default" id="uber">Uber It</button>
+              <button type="submit" class="btn btn-default" id="uber" >Uber It</button>
             </div>
           </form>
 
+          <div class="row">
+            <div class="container" id="suggestions"></div>
+          </div>
         </div>
       </div>
   </body>
 
+  <script id="times_template" type="text/x-handlebars-template">
+    <div class="col-md-2 item" id={{display_name}}>
+      <label>{{display_name}}</label>
+      <div>{{price}}</div>
+      <div>{{estimate}} mins</div>
+    </div>
+  </script>
+
+  <script id="booking_template" type="text/x-handlebars-template">
+    <div class="col-md-2 item" id={{display_name}}>
+      <label>{{display_name}}</label>
+      <div>{{estimate}}</div>
+      <div>{{distance}} mi</div>
+      {{#if time_estimate}}
+        <div>E/A: {{time_estimate}} mins</div>
+        {{else}}
+        <div>E/A: N/A</div>
+      {{/if}}
+      <button type="submit" class="btn btn-danger btn-xs request_ride">Book</button>
+    </div>
+  </script>
 
 </body>
 </html>

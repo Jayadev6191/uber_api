@@ -12,3 +12,27 @@ body {
 #address_placeholder label{
   color: #FFF;
 }
+
+#suggestions{
+  width: 385px;
+  margin-left: 190px;
+}
+
+.item{
+  margin-right: 30px;
+  color: #FFF;
+  padding: 13px;
+  width: 80px;
+}
+
+#uber{
+  display: none;
+}
+
+.item label{
+  font-size: 10px;
+}
+
+.item div{
+  font-size: 8px;
+}
